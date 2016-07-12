@@ -1,0 +1,2 @@
+create database if not exists DATABASE_CREATE;
+grant all privileges on DATABASE_CREATE.* to 'CURRENT_USER'@'localhost' identified by 'NEW_DB_PASSWORD';
