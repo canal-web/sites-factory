@@ -5,6 +5,7 @@ Permet de créer une version d'un site d'après un repository
 
 - Récupérer les fichiers avec `git clone git@github.com:canal-web/sites-factory.git` ou en téléchargeant le zip.
 - Copier les fichiers se situant dans le dossier `variables` et les renommer en les préfixant de `local.`, modifier le contenu en conséquence.
+- Créer un fichier `htpasswd.template` dans le dossier `templates` contenant les identifiants de l'htpasswd des sites
 
 ## Utilisation
 ```
