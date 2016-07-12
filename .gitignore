@@ -1,1 +1,3 @@
 variables/local.*
+create_db_and_user.sql
+.htpassword.template
