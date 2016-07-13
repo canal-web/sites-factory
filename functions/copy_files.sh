@@ -22,7 +22,7 @@ if [[ $PROVIDED_FILES != false ]]; then
     cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.gitignore .
     chown -R $THE_USER.$LOCAL_GROUP .
 
-    if [[ NEW_REPO == true ]]; then
+    if [[ $NEW_REPO == true ]]; then
         su - $THE_USER -c "$DIR/functions/new_git_init.sh ${LOCAL_DIR}httpdocs/ $REPO_PATH"
     fi
 
