@@ -50,3 +50,15 @@ APACHE_CONF_TEMPLATE="$DIR/templates/TOKENAPACHE.conf"
 # Apache vhosts path
 
 APACHE_PATH="/etc/apache2/sites-available/"
+
+# 1st IP address to be ignored by htpasswd
+
+IP_ADD_1="127.0.0.1"
+
+# 2nd IP address to be ignored by htpasswd
+
+IP_ADD_2="127.0.0.1"
+
+# 3rd IP address to be ignored by htpasswd
+
+IP_ADD_3="127.0.0.1"
