@@ -9,7 +9,7 @@ else
     DATABASE_USER=$DATABASE_CREATE
 fi
 
-cat $CREATE_SQL_TEMPLATE | sed -e "s,DATABASE_CREATE,${DATABASE_CREATE},g" | sed -e "s,CURRENT_USER,${DATABASE_USER},g" | sed -e "s,NEW_DB_PASSWORD,${NEW_DB_PASSWORD},g" > $CREATE_SQL
+sudo cat $CREATE_SQL_TEMPLATE | sed -e "s,DATABASE_CREATE,${DATABASE_CREATE},g" | sed -e "s,CURRENT_USER,${DATABASE_USER},g" | sed -e "s,NEW_DB_PASSWORD,${NEW_DB_PASSWORD},g" > $CREATE_SQL
 
 
 mysql -u${SQL_USER} -p${SQL_PASSWD} < $CREATE_SQL
@@ -19,6 +19,6 @@ echo "Database Created"
 if [[ $PROVIDED_DATABASE != false ]]; then
     mysqldump -u$SQL_USER -p$SQL_PASSWD $PROVIDED_DATABASE > dbtmp.sql
     mysql -u$SQL_USER -p$SQL_PASSWD $DATABASE_CREATE < dbtmp.sql
-    rm dbtmp.sql
+    sudo rm dbtmp.sql
     echo "Database populated"
 fi
