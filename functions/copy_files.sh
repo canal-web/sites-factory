@@ -17,7 +17,7 @@ fi
 # In case of new site, copy the files and create the first commit
 if [[ $PROVIDED_FILES != false ]]; then
     cd ${LOCAL_DIR}'httpdocs/'
-    sudo cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/* .
+    sudo  rsync -avz  --exclude "var/" ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/ .
     sudo cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.htaccess .
     sudo cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.gitignore .
     sudo chown -R $THE_USER.$LOCAL_GROUP .
