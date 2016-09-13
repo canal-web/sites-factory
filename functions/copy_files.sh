@@ -7,8 +7,8 @@ if [[ -d $REPO_PATH ]]; then
     NEW_REPO=false
 else
     # Creation of the repository
-    mkdir ${GIT_PATH}'/'${PROVIDED_GIT}'/'
-    chown -R $THE_USER.$LOCAL_GROUP $REPO_PATH
+    sudo mkdir ${GIT_PATH}'/'${PROVIDED_GIT}'/'
+    sudo chown -R $THE_USER.$LOCAL_GROUP $REPO_PATH
 
     su - $THE_USER -c "cd $REPO_PATH && git init --bare --shared"
     NEW_REPO=true
