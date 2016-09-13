@@ -27,8 +27,8 @@ else
         sudo mkdir -p "${LOCAL_DIR}httpdocs"
         sudo chown -R ${THE_USER}.${LOCAL_GROUP} ${LOCAL_DIR}
         sudo chmod g+w ${LOCAL_DIR}
-        mkdir -p "${LOCAL_DIR}logs"
-        mkdir -p "${LOCAL_DIR}bin"
+        sudo mkdir -p "${LOCAL_DIR}logs"
+        sudo mkdir -p "${LOCAL_DIR}bin"
         echo "Directories have been created in ${LOCAL_DIR}."
     fi
 fi

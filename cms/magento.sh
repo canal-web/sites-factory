@@ -2,7 +2,7 @@
 
 # Create var folder
 if [[ ! -d ${LOCAL_DIR}httpdocs/var ]]; then
-    mkdir ${LOCAL_DIR}httpdocs/var
+    sudo mkdir ${LOCAL_DIR}httpdocs/var
     sudo chown -R ${THE_USER}.${LOCAL_GROUP} ${LOCAL_DIR}httpdocs/var
     sudo chmod -R 777 ${LOCAL_DIR}httpdocs/var
 else
@@ -18,7 +18,7 @@ mysql -u$DATABASE_USER -p$NEW_DB_PASSWORD $DATABASE_CREATE -e "UPDATE core_confi
 
 for TMP_DIR in session locks cache
 do
-    rm -rf "$SITE_BASE/var/$TMP_DIR"
+    sudo rm -rf "$SITE_BASE/var/$TMP_DIR"
 done
 
 
