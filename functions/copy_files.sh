@@ -17,10 +17,10 @@ fi
 # In case of new site, copy the files and create the first commit
 if [[ $PROVIDED_FILES != false ]]; then
     cd ${LOCAL_DIR}'httpdocs/'
-    cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/* .
-    cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.htaccess .
-    cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.gitignore .
-    chown -R $THE_USER.$LOCAL_GROUP .
+    sudo cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/* .
+    sudo cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.htaccess .
+    sudo cp -R ${PATH_LOCAL_SITES}${PROVIDED_FILES}.${DOMAIN_NAME}/httpdocs/.gitignore .
+    sudo chown -R $THE_USER.$LOCAL_GROUP .
 
     if [[ $NEW_REPO == true ]]; then
         su - $THE_USER -c "$DIR/functions/new_git_init.sh ${LOCAL_DIR}httpdocs/ $REPO_PATH"
