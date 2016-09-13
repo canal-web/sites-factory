@@ -24,19 +24,19 @@ sudo ./magic.sh -g repository -f files -d database -u user nom_du_nouveau_site
 Créer une instance principale dépendant d'un repository
 
 ```
-sudo ./magic.sh -g site_principal_repo -d site_principal_db nom_du_nouveau_site
+./magic.sh -g site_principal_repo -d site_principal_db nom_du_nouveau_site
 ```
 
 Créer un site Magento avec les modules de base
 
 ```
-sudo ./magic.sh -g nom_du_nouveau_site -f starter -d starter nom_du_nouveau_site
+./magic.sh -g nom_du_nouveau_site -f starter -d starter nom_du_nouveau_site
 ```
 
 Créer une instance pour l'utilisateur review
 
 ```
-sudo ./magic.sh -g instance_mere -d instance_mere -u review instance_mere
+./magic.sh -g instance_mere -d instance_mere -u review instance_mere
 ```
 
 **ATTENTION : le nom du nouveau site doit toujours être le dernier paramètre passé**
