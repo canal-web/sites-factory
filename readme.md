@@ -16,7 +16,7 @@ sudo ./magic.sh -g repository -f files -d database -u user nom_du_nouveau_site
 
 `-g` : Obligatoire. Fait un git clone du repository passé s'il existe. Sinon, crée le repository avec ce nom.  
 `-f` : Facultatif. Copie les fichiers et fait un commit initial.  
-`-d` : Obligatoire. Copie la base de données donnée.  
+`-d` : Facultatif. Copie la base de données donnée.  
 `-u` : Facultatif. Installation une instance au nom de l'utilisateur passé. Crée le script de récupération de la BDD mère pour les synchronisations.
 
 ### Exemples
@@ -39,6 +39,12 @@ Créer une instance pour l'utilisateur review
 ./magic.sh -g instance_mere -d instance_mere -u review instance_mere
 ```
 
+Créer une instance mère vide, sans CMS
+
+```
+./magic.sh -g nom_du_nouveau_site nom_du_nouveau_site
+```
+
 **ATTENTION : le nom du nouveau site doit toujours être le dernier paramètre passé**
 
 ## Ajout d'un CMS
@@ -46,3 +52,7 @@ Créer une instance pour l'utilisateur review
 - Ajouter un fichier appelé `nomducms.sh` dans le dossier `cms` et mettre dedans tout ce qui est spécifique au cms (comme la création du fichier de connexion à la BDD).
 - Mettre le gabarit du fichier de connexion à la BDD du cms dans `templates/nomducms`
 - Pour ajouter des fonctionnalités spécifiques au CMS lors de la création du fichier de récupération de la BDD, ajouter un fichier `specific.sh` dans `templates/nomducms`
+
+## TODO
+
+- Automatiser la création d'instances Laravel :P
