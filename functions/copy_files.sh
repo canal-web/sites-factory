@@ -29,4 +29,5 @@ if [[ $PROVIDED_FILES != false ]]; then
     cd $DIR
 fi
 
-su - $THE_USER cp "$DIR/templates/htpasswd.template" $LOCAL_DIR'httpdocs/.htpasswd'
+sudo cp "$DIR/templates/htpasswd.template" $LOCAL_DIR'httpdocs/.htpasswd'
+sudo chown $THE_USER.$LOCAL_GROUP $LOCAL_DIR'httpdocs/.htpasswd'
