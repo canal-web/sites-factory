@@ -2,6 +2,7 @@
 sudo cat "${DIR}/templates/get_db_dist.bash" | sed \
 -e "s,ARG,${SITE_NAME}," \
 -e "s,DOMAIN_NAME,${DOMAIN_NAME}," \
+-e "s,_SUB_DOMAIN,${SUB_DOMAIN}," \
 -e "s,FOLDER_SITE_NAME,${FOLDER_SITE_NAME}," \
 -e "s,LOCAL_USER,${THE_USER}," \
 -e "s,GROUP_NAME,${LOCAL_GROUP}," \
