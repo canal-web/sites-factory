@@ -6,7 +6,7 @@ USED_CMS=false
 
 if [[ $USED_CMS == false && -d $LOCAL_DIR"/httpdocs/app/etc/" ]]; then
     USED_CMS="magento"
-elif [[ $USED_CMS == false && -f $LOCAL_DIR"/httpdocs/sites/default/settings.php" ]]; then
+elif [[ $USED_CMS == false && -f $LOCAL_DIR"/httpdocs/sites/default/default.settings.php" ]]; then
     USED_CMS="drupal"
 fi
 
