@@ -7,7 +7,7 @@ sudo cat "${DIR}/templates/get_db_dist.bash" | sed \
 -e "s,LOCAL_USER,${THE_USER}," \
 -e "s,GROUP_NAME,${LOCAL_GROUP}," \
 -e "s,TOKENSITEBASE,${LOCAL_DIR}httpdocs," \
--e "s,LOCALDBNAME,$THE_USER$SITE_NAME," \
+-e "s,LOCALDBNAME,$THE_USER$(echo "$SITE_NAME" | sed 's/[\._-]//g')," \
 -e "s,LOCAL_PASSWD_DB,${NEW_DB_PASSWORD}," \
 -e "s,LOCALDBUSERTOKEN,${THE_USER}," \
 -e "s,MASTER_PASSWD_DB,${SQL_PASSWD}," \
