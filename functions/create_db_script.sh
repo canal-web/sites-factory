@@ -11,7 +11,7 @@ sudo cat "${DIR}/templates/get_db_dist.bash" | sed \
 -e "s,LOCAL_PASSWD_DB,${NEW_DB_PASSWORD}," \
 -e "s,LOCALDBUSERTOKEN,${THE_USER}," \
 -e "s,MASTER_PASSWD_DB,${SQL_PASSWD}," \
--e "s,MASTER_DB_NAME,${PROVIDED_DATABASE}," \
+-e "s,MASTER_DB_NAME,$(echo "$PROVIDED_DATABASE" | sed 's/[\._-]//g')," \
 -e "s,MASTER_DB_USER,${SQL_USER}," \
 -e "s,MASTER_DOMAIN,${PROVIDED_DATABASE}.${DOMAIN_NAME}," \
 -e "s,CHILD_DOMAIN,${SUB_DOMAIN}.${DOMAIN_NAME}," \
