@@ -36,11 +36,11 @@ else
         su - $THE_USER -c "git clone git@github.com:canal-web/sites-deployment.git ${LOCAL_DIR}production"
         cat "${LOCAL_DIR}production/settings/default.local_params.sh" | sed \
         -e "s,_LOCAL_URL,${INSTANCE_MERE_URL}," \
-        -e "s,_LOCAL_ROOTDIR,${LOCAL_DIR}httpdocs," \
+        -e "s,_LOCAL_ROOTDIR,${LOCAL_DIR}httpdocs/," \
         -e "s,_LOCAL_SQL_HOST,${LOCAL_HOST}," \
         -e "s,_LOCAL_SQL_USER,${SQL_USER}," \
         -e "s,_LOCAL_SQL_PASSWORD,${SQL_PASSWD}," \
-        -e "s,_LOCAL_SQL_DATABASE,$(echo "$PROVIDED_DATABASE" | sed 's/[\._-]//g')," \
+        -e "s,_LOCAL_SQL_DATABASE,$(echo "${SITE_NAME}" | sed 's/[\._-]//g')," \
          > "${LOCAL_DIR}production/settings/local_params.sh"
     fi
 fi
