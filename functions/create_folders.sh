@@ -33,7 +33,7 @@ else
         echo "Directories have been created in ${LOCAL_DIR}."
 
         INSTANCE_MERE_URL="http://${SUB_DOMAIN}.${DOMAIN_NAME}/"
-        git clone git@github.com:canal-web/sites-deployment.git ${LOCAL_DIR}production
+        su - $THE_USER -c "git clone git@github.com:canal-web/sites-deployment.git ${LOCAL_DIR}production"
         cat "${LOCAL_DIR}production/settings/default.local_params.sh" | sed \
         -e "s,_LOCAL_URL,${INSTANCE_MERE_URL}," \
         -e "s,_LOCAL_ROOTDIR,${LOCAL_DIR}httpdocs," \
