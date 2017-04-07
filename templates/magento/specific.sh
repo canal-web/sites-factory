@@ -9,9 +9,16 @@ do
     rm -rf "$SITE_BASE/var/$DIR"
 done
 
+# Create media/var directories if not already present
+mkdir ${SITE_BASE}/media/ -p
+mkdir ${SITE_BASE}/var/ -p
+
 # Copy media files
 DISTANT_FILES="${PATH_LOCAL_SITES}${MASTER_SITE_URL}/httpdocs/media/*"
 
 cp -R $DISTANT_FILES "${SITE_BASE}/media/"
 sudo chmod -R 777 $SITE_BASE/media/
 sudo chown -R $CURRENT_USER.$GROUP $SITE_BASE/media
+sudo chmod -R 777 $SITE_BASE/var/
+sudo chown -R $CURRENT_USER.$GROUP $SITE_BASE/var
+

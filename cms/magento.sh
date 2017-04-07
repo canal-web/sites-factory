@@ -11,6 +11,16 @@ else
 fi
 
 
+# Create media folder
+if [[ ! -d ${LOCAL_DIR}httpdocs/media ]]; then
+    sudo mkdir ${LOCAL_DIR}httpdocs/media
+    sudo chown -R ${THE_USER}.${LOCAL_GROUP} ${LOCAL_DIR}httpdocs/media
+    sudo chmod -R 777 ${LOCAL_DIR}httpdocs/media
+else
+    sudo chown -R ${THE_USER}.${LOCAL_GROUP} ${LOCAL_DIR}httpdocs/media
+    sudo chmod -R 777 ${LOCAL_DIR}httpdocs/media
+fi
+
 OLD_HOSTS=`mysql --silent --skip-column-names -u$DATABASE_USER -p$NEW_DB_PASSWORD $DATABASE_CREATE -e 'select GROUP_CONCAT(config_id SEPARATOR ",") from core_config_data where value like "%http%" and path like "%web/%" and path like "%secure%" GROUP BY "all"'`
 
 mysql -u$DATABASE_USER -p$NEW_DB_PASSWORD $DATABASE_CREATE -e "UPDATE core_config_data SET value='http://${SUB_DOMAIN}.${DOMAIN_NAME}/' WHERE config_id IN ($OLD_HOSTS)"
