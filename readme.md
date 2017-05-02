@@ -30,7 +30,7 @@ Créer une instance principale dépendant d'un repository
 Créer un site Magento avec les modules de base
 
 ```
-./magic.sh -g nom_du_nouveau_site -f starter -d starter nom_du_nouveau_site
+./magic.sh -g nom_du_nouveau_site -f starter193 -d starter193 nom_du_nouveau_site
 ```
 
 Créer une instance pour l'utilisateur review
@@ -39,10 +39,16 @@ Créer une instance pour l'utilisateur review
 ./magic.sh -g instance_mere -d instance_mere -u review instance_mere
 ```
 
-Créer une instance mère vide, sans CMS
+Créer une instance mère vide, sans CMS (attention manips supplémentaires nécessaires)
 
 ```
 ./magic.sh -g nom_du_nouveau_site nom_du_nouveau_site
+cd /dosier/du/nom_du_nouveau_site/httpdocs/
+git init
+git add unfichier
+git commit
+git remote add origin /var/git/nom_du_nouveau_site/
+git push --set-upstream origin master
 ```
 
 **ATTENTION : le nom du nouveau site doit toujours être le dernier paramètre passé**
@@ -55,4 +61,5 @@ Créer une instance mère vide, sans CMS
 
 ## TODO
 
+- Rajouter une commande qui permettrait de spécifier le type de cms/framework qui sera utilisé, dans les cas où on ne part pas d'un starter (wordpress, laravel…), histoire de générer au moins un gitignore adapté (et comme ça on pourrait aussi automatiser les manips supplémentaires demandées quand on part sans base : git init, commit dans le vide, add remote, set upstream)
 - Automatiser la création d'instances Laravel :P
