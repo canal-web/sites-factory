@@ -1,17 +1,19 @@
 #!/bin/bash
 
 # Checking if we must clone or create a git repository
-REPO_PATH=$GIT_PATH'/'$PROVIDED_GIT'/'
-if [[ -d $REPO_PATH ]]; then
-    su - $THE_USER -c "git clone ${REPO_PATH} ${LOCAL_DIR}httpdocs/"
-    NEW_REPO=false
-else
-    # Creation of the repository
-    sudo mkdir ${GIT_PATH}'/'${PROVIDED_GIT}'/'
-    sudo chown -R $THE_USER.$LOCAL_GROUP $REPO_PATH
+if [[ $PROVIDED_GIT != false ]]; then
+    REPO_PATH=$GIT_PATH'/'$PROVIDED_GIT'/'
+    if [[ -d $REPO_PATH ]]; then
+        su - $THE_USER -c "git clone ${REPO_PATH} ${LOCAL_DIR}httpdocs/"
+        NEW_REPO=false
+    else
+        # Creation of the repository
+        sudo mkdir ${GIT_PATH}'/'${PROVIDED_GIT}'/'
+        sudo chown -R $THE_USER.$LOCAL_GROUP $REPO_PATH
 
-    su - $THE_USER -c "cd $REPO_PATH && git init --bare --shared"
-    NEW_REPO=true
+        su - $THE_USER -c "cd $REPO_PATH && git init --bare --shared"
+        NEW_REPO=true
+    fi
 fi
 
 # In case of new site, copy the files and create the first commit

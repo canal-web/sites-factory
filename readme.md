@@ -14,7 +14,7 @@ sudo ./magic.sh -g repository -f files -d database -u user nom_du_nouveau_site
 
 ### Paramètres
 
-`-g` : Obligatoire. Fait un git clone du repository passé s'il existe. Sinon, crée le repository avec ce nom.  
+`-g` : Facultatif. Fait un git clone du repository passé s'il existe. Sinon, crée le repository avec ce nom. Si non renseigné, pas de versionning.
 `-f` : Facultatif. Copie les fichiers et fait un commit initial.  
 `-d` : Facultatif. Copie la base de données donnée.  
 `-u` : Facultatif. Installation une instance au nom de l'utilisateur passé. Crée le script de récupération de la BDD mère pour les synchronisations.

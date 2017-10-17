@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 function die
 {
     echo "$@" >&2
@@ -63,12 +63,7 @@ done
 # Check if there is an htpasswd
 
 if [[ ! -f "$DIR/templates/htpasswd.template" ]]; then
-    die "You muste create an 'htpasswd.template' and put it in the templates folder to continue"
-fi
-
-# If no git or files provided, return
-if [[ $PROVIDED_GIT == false ]]; then
-    die "You must provide a git repository name to clone or to be created"
+    die "You must create an 'htpasswd.template' and put it in the templates folder to continue"
 fi
 
 # If the user does not exist
